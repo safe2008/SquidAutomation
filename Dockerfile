@@ -1,11 +1,11 @@
 # 1. Start from a minimal Ubuntu
-FROM ubuntu:22.04
+FROM ubuntu:25.10
 
 # 2. Install Squid
 RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y squid \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y squid \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # 3. Copy your custom config in
 COPY squid.conf /etc/squid/squid.conf
